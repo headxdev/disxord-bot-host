@@ -1,0 +1,87 @@
+# Discord Bot Manager Requirements
+# Created by headx & the psychon
+# Version 2.0 - Enhanced Dependencies
+
+# =============================================================================
+# Core Dependencies
+# =============================================================================
+
+# Core Discord Bot Framework - Latest stable version
+discord.py>=2.3.2,<3.0.0
+
+# Async HTTP Client for API requests
+aiohttp>=3.9.0,<4.0.0
+
+# Environment Variables handling
+python-dotenv>=1.0.0,<2.0.0
+
+# =============================================================================
+# Bot Features
+# =============================================================================
+
+# Voice Support (optional but recommended)
+PyNaCl>=1.5.0,<2.0.0
+
+# JSON schema validation for configs
+jsonschema>=4.17.0,<5.0.0
+
+# Enhanced HTTP requests with retry logic
+httpx>=0.24.0,<1.0.0
+
+# Date/time handling
+python-dateutil>=2.8.0,<3.0.0
+
+# =============================================================================
+# System & Performance
+# =============================================================================
+
+# Console Colors and formatting
+colorama>=0.4.6,<1.0.0
+
+# File system monitoring
+watchdog>=3.0.0,<4.0.0
+
+# Process management and system info
+psutil>=5.9.0,<6.0.0
+
+# Async task scheduling
+APScheduler>=3.10.0,<4.0.0
+
+# =============================================================================
+# Security & Validation
+# =============================================================================
+
+# Input validation and sanitization
+validators>=0.20.0,<1.0.0
+
+# Cryptographic functions
+cryptography>=41.0.0,<42.0.0
+
+# =============================================================================
+# Database (Optional)
+# =============================================================================
+
+# SQLite enhanced functionality (optional)
+# sqlite-utils>=3.34.0,<4.0.0
+
+# =============================================================================
+# Development Dependencies (Uncomment for development)
+# =============================================================================
+
+# Testing framework
+# pytest>=7.4.0,<8.0.0
+# pytest-asyncio>=0.21.0,<1.0.0
+
+# Code formatting
+# black>=23.7.0,<24.0.0
+# isort>=5.12.0,<6.0.0
+
+# Linting
+# flake8>=6.1.0,<7.0.0
+# pylint>=2.17.0,<3.0.0
+
+# Type checking
+# mypy>=1.5.0,<2.0.0
+
+# Documentation
+# sphinx>=7.1.0,<8.0.0

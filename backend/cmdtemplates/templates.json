@@ -1,0 +1,122 @@
+"""
+Command Templates Info
+Format: JSON
+Author: headx - the psychon
+Description: Template metadata for the frontend
+"""
+
+{
+    "version": "1.0.0",
+    "author": "headx - the psychon",
+    "categories": {
+        "basic": {
+            "name": "Basic Commands",
+            "icon": "⚡",
+            "color": "#5865F2",
+            "description": "Essential commands for any Discord bot"
+        },
+        "moderation": {
+            "name": "Moderation",
+            "icon": "🛡️",
+            "color": "#FF4444",
+            "description": "Server management and moderation tools"
+        },
+        "fun": {
+            "name": "Fun & Entertainment",
+            "icon": "🎮",
+            "color": "#43B581",
+            "description": "Fun commands to make your server more engaging"
+        },
+        "music": {
+            "name": "Music & Audio",
+            "icon": "🎵",
+            "color": "#FAA61A",
+            "description": "Music playback and audio features"
+        },
+        "utility": {
+            "name": "Utility",
+            "icon": "🛠️",
+            "color": "#7289DA",
+            "description": "Useful tools and helper commands"
+        },
+        "economy": {
+            "name": "Economy & Games",
+            "icon": "💰",
+            "color": "#43B581",
+            "description": "Economy system and mini-games"
+        },
+        "advanced": {
+            "name": "Advanced Features",
+            "icon": "🚀",
+            "color": "#9B59B6",
+            "description": "Special and unique bot features"
+        }
+    },
+    "templates": {
+        "ping": {
+            "name": "Ping",
+            "category": "basic",
+            "description": "Check bot latency with style",
+            "file": "ping.py",
+            "requires": ["discord.py"],
+            "complexity": "Beginner"
+        },
+        "kick": {
+            "name": "Kick Command",
+            "category": "Moderation",
+            "description": "Kick members with reason and notification",
+            "file": "kick.py",
+            "requires": ["discord.py"],
+            "complexity": "Intermediate"
+        },
+        "ban": {
+            "name": "Ban Command",
+            "category": "Moderation",
+            "description": "Ban members with message deletion and notification",
+            "file": "ban.py",
+            "requires": ["discord.py"],
+            "complexity": "Intermediate"
+        },
+        "clear": {
+            "name": "Clear Command",
+            "category": "Moderation",
+            "description": "Clear messages from a channel",
+            "file": "clear.py",
+            "requires": ["discord.py"],
+            "complexity": "Beginner"
+        },
+        "music": {
+            "name": "Music Commands",
+            "category": "Entertainment",
+            "description": "Basic music bot functionality (play, queue, skip, etc.)",
+            "file": "music.py",
+            "requires": ["discord.py", "PyNaCl"],
+            "complexity": "Advanced"
+        },
+        "fun": {
+            "name": "Fun Commands",
+            "category": "Entertainment",
+            "description": "Collection of fun commands (8ball, dice, etc.)",
+            "file": "fun.py",
+            "requires": ["discord.py"],
+            "complexity": "Beginner"
+        }
+    },
+    "categories": {
+        "Basic": {
+            "color": "#5865F2",
+            "icon": "⚡",
+            "description": "Essential commands for any bot"
+        },
+        "Moderation": {
+            "color": "#FF4444",
+            "icon": "🛡️",
+            "description": "Commands for server management and moderation"
+        },
+        "Entertainment": {
+            "color": "#43B581",
+            "icon": "🎮",
+            "description": "Fun and entertainment commands"
+        }
+    }
+}

@@ -1,0 +1,24 @@
+{
+  "app": {
+    "name": "Discord Bot Manager",
+    "version": "2.0.0",
+    "host": "0.0.0.0",
+    "port": 8000,
+    "debug": false
+  },
+  "security": {
+    "session_timeout": 3600,
+    "max_login_attempts": 5,
+    "csrf_enabled": true
+  },
+  "bot_defaults": {
+    "prefix": "!",
+    "max_bots": 10,
+    "auto_restart": true
+  },
+  "features": {
+    "discord_oauth": true,
+    "auto_backup": true,
+    "command_logging": true
+  }
+}

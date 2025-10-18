@@ -1,0 +1,171 @@
+/* Error Handling Styles */
+
+/* Notification Container */
+#notification-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    pointer-events: none;
+}
+
+/* Individual Notifications */
+.notification {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 15px 20px;
+    min-width: 300px;
+    max-width: 450px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transform: translateX(100%);
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: auto;
+    border: 1px solid var(--glass-border);
+}
+
+.notification.error {
+    background: rgba(237, 66, 69, 0.1);
+    border-color: var(--danger);
+}
+
+.notification.success {
+    background: rgba(87, 242, 135, 0.1);
+    border-color: var(--success);
+}
+
+.notification.warning {
+    background: rgba(254, 231, 92, 0.1);
+    border-color: var(--warning);
+}
+
+.notification.info {
+    background: rgba(0, 212, 170, 0.1);
+    border-color: var(--info);
+}
+
+/* Notification Content */
+.error-notification {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.error-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.error-icon {
+    font-size: 20px;
+    color: var(--danger);
+}
+
+.error-title {
+    font-weight: 600;
+    color: var(--text-bright);
+}
+
+.error-details {
+    font-family: monospace;
+    font-size: 0.9em;
+    padding: 8px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    color: var(--text-secondary);
+}
+
+.error-suggestion {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 0.9em;
+    color: var(--text-secondary);
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+}
+
+.suggestion-icon {
+    color: var(--warning);
+}
+
+/* Close Button */
+.notification-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 5px;
+    font-size: 16px;
+    line-height: 1;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.notification-close:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-bright);
+}
+
+/* Error Modal */
+.error-modal-content {
+    text-align: center;
+    padding: 20px;
+}
+
+.error-icon-large {
+    font-size: 48px;
+    color: var(--danger);
+    margin-bottom: 20px;
+}
+
+.error-modal-content h3 {
+    color: var(--text-bright);
+    margin-bottom: 15px;
+}
+
+.error-stack {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    border-radius: 8px;
+    font-family: monospace;
+    font-size: 12px;
+    color: var(--text-secondary);
+    white-space: pre-wrap;
+    margin: 15px 0;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.error-code {
+    display: inline-block;
+    font-family: monospace;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 4px 8px;
+    border-radius: 4px;
+    color: var(--text-secondary);
+    margin: 10px 0;
+}
+
+.error-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* Animation */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}

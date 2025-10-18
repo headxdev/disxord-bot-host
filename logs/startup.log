@@ -1,0 +1,12 @@
+2025-10-18 14:39:02,455 [INFO] Starting Flask app at http://0.0.0.0:8000
+2025-10-18 14:39:33,117 [INFO] Starting Flask app at http://0.0.0.0:8000
+2025-10-18 14:40:45,753 [INFO] Starting Flask app at http://0.0.0.0:8000
+2025-10-18 14:41:16,078 [WARNING] Firewall command failed: Command '['netsh', 'advfirewall', 'firewall', 'add', 'rule', 'name=DiscordBotManager-8000', 'dir=in', 'action=allow', 'protocol=TCP', 'localport=8000']' returned non-zero exit status 1.
+2025-10-18 14:42:11,439 [INFO] Starting Flask app at http://0.0.0.0:8000
+2025-10-18 14:42:41,738 [WARNING] Firewall command failed: Command '['netsh', 'advfirewall', 'firewall', 'add', 'rule', 'name=DiscordBotManager-8000', 'dir=in', 'action=allow', 'protocol=TCP', 'localport=8000']' returned non-zero exit status 1.
+2025-10-18 14:45:13,881 [INFO] Starting Flask app at http://0.0.0.0:8000
+2025-10-18 14:45:44,180 [WARNING] Firewall command failed: Command '['netsh', 'advfirewall', 'firewall', 'add', 'rule', 'name=DiscordBotManager-8000', 'dir=in', 'action=allow', 'protocol=TCP', 'localport=8000']' returned non-zero exit status 1.
+2025-10-18 14:47:54,669 [INFO] Starting Flask app at http://0.0.0.0:8000
+2025-10-18 14:47:55,435 [WARNING] Firewall command failed: Command '['netsh', 'advfirewall', 'firewall', 'add', 'rule', 'name=DiscordBotManager-8000', 'dir=in', 'action=allow', 'protocol=TCP', 'localport=8000']' returned non-zero exit status 1.
+2025-10-18 14:52:15,939 [INFO] Starting Flask app at http://0.0.0.0:8000
+2025-10-18 14:52:16,650 [WARNING] Firewall command failed: Command '['netsh', 'advfirewall', 'firewall', 'add', 'rule', 'name=DiscordBotManager-8000', 'dir=in', 'action=allow', 'protocol=TCP', 'localport=8000']' returned non-zero exit status 1.

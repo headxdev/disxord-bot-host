@@ -1,0 +1,213 @@
+/* Mobile stylesheet: Import main theme then apply mobile-specific overrides */
+@import url("style.css");
+
+/* Mobile-specific overrides */
+html, body {
+    -webkit-text-size-adjust: 100%;
+}
+
+.container {
+    padding: 14px;
+}
+
+.header {
+    padding: 24px 12px;
+    border-radius: 16px;
+}
+
+.header h1 {
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+.header .header-content {
+    flex-direction: column;
+    gap: 12px;
+}
+
+.navigation-tabs,
+.nav-tabs {
+    flex-direction: column;
+    gap: 8px;
+}
+
+.navigation-tab,
+.nav-tab {
+    text-align: left;
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 20px;
+    border-radius: 12px;
+}
+
+#bot-list {
+    grid-template-columns: 1fr;
+}
+
+.editor-area {
+    grid-template-columns: 1fr;
+}
+
+.file-panel {
+    max-height: 220px;
+}
+
+.modal-content {
+    width: 95%;
+    padding: 16px;
+}
+
+/* Make buttons full width for clarity on small screens */
+.btn {
+    width: 100%;
+}
+
+/* Ensure code editor has comfortable touch targets */
+.code-editor {
+    min-height: 240px;
+    font-size: 13px;
+}
+/* Mobile-First Media Queries */
+@media screen and (max-width: 768px) {
+    .header h1 {
+        font-size: clamp(1.8em, 6vw, 3em);
+    }
+
+    .header p {
+        font-size: clamp(0.9em, 4vw, 1.2em);
+    }
+
+    .nav-tabs {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .template-nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .template-nav .nav-tab {
+        min-width: calc(50% - 5px);
+        flex: 0 1 auto;
+    }
+
+    .bot-card {
+        padding: 20px;
+    }
+
+    .action-group {
+        flex-direction: column;
+    }
+
+    .action-group.secondary .btn {
+        min-width: 100%;
+    }
+
+    .modal-content {
+        padding: 20px;
+        width: 95%;
+    }
+
+    /* Adjust planet sizes for mobile */
+    .solar-system {
+        transform: translate(-50%, -50%) rotateX(75deg) rotateZ(45deg) scale3d(0.4, 0.4, 0.4);
+    }
+
+    .sun {
+        width: 80px;
+        height: 80px;
+    }
+
+    /* Adjust planet orbits for mobile */
+    :root {
+        --orbit-mercury: 70px;
+        --orbit-venus: 100px;
+        --orbit-earth: 140px;
+        --orbit-mars: 180px;
+        --orbit-jupiter: 240px;
+        --orbit-saturn: 300px;
+        --orbit-uranus: 360px;
+        --orbit-neptune: 420px;
+    }
+}
+
+/* Tablet Adjustments */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .solar-system {
+        transform: translate(-50%, -50%) rotateX(75deg) rotateZ(45deg) scale3d(0.5, 0.5, 0.5);
+    }
+
+    :root {
+        --orbit-mercury: 85px;
+        --orbit-venus: 125px;
+        --orbit-earth: 170px;
+        --orbit-mars: 215px;
+        --orbit-jupiter: 280px;
+        --orbit-saturn: 350px;
+        --orbit-uranus: 420px;
+        --orbit-neptune: 490px;
+    }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) {
+    .btn:hover,
+    .nav-tab:hover,
+    .template-nav .nav-tab:hover,
+    .bot-card:hover {
+        transform: none;
+    }
+
+    .btn:active,
+    .nav-tab:active,
+    .template-nav .nav-tab:active,
+    .bot-card:active {
+        transform: scale(0.98);
+    }
+}
+
+/* Prevent Background Effects on Low-Performance Devices */
+@media (prefers-reduced-motion: reduce) {
+    .solar-system,
+    .planet,
+    .sun,
+    body::before,
+    body::after {
+        animation: none !important;
+    }
+
+    .btn::before,
+    .nav-tab::before,
+    .template-nav .nav-tab::before {
+        display: none;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .solar-system,
+    body::before,
+    body::after {
+        display: none !important;
+    }
+
+    .container {
+        padding: 0;
+    }
+
+    .header,
+    .main-content {
+        background: none;
+        box-shadow: none;
+        border: none;
+    }
+
+    .btn,
+    .nav-tab,
+    .template-nav {
+        display: none;
+    }
+}

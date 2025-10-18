@@ -1,0 +1,106 @@
+{
+  "name": "discord-bot-manager",
+  "version": "2.0.0",
+  "description": "Professional Discord Bot Manager with cosmic-themed UI - Create and manage Discord bots easily",
+  "main": "frontend/script.js",
+  "scripts": {
+    "dev": "python run.py",
+    "start": "python run.py",
+    "build": "npm run optimize-css && npm run optimize-js",
+    "optimize-css": "cleancss -o frontend/style.min.css frontend/style.css",
+    "optimize-js": "terser frontend/script.js -o frontend/script.min.js -c -m",
+    "lint-css": "stylelint frontend/*.css",
+    "lint-js": "eslint frontend/*.js",
+    "test": "python -m pytest",
+    "format": "prettier --write frontend/*.{html,css,js}",
+    "validate-html": "html-validate frontend/*.html",
+    "serve": "http-server frontend -p 3000 -c-1",
+    "watch": "concurrently \"npm run watch-css\" \"npm run watch-js\"",
+    "watch-css": "chokidar 'frontend/*.css' -c 'npm run optimize-css'",
+    "watch-js": "chokidar 'frontend/*.js' -c 'npm run optimize-js'"
+  },
+  "keywords": [
+    "discord",
+    "bot",
+    "manager",
+    "discord.py",
+    "python",
+    "web-interface",
+    "cosmic-theme",
+    "bot-management",
+    "discord-bots",
+    "oauth2",
+    "flask"
+  ],
+  "authors": [
+    "headx",
+    "the psychon"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/discord-bot-manager.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/discord-bot-manager/issues"
+  },
+  "homepage": "https://github.com/yourusername/discord-bot-manager#readme",
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "devDependencies": {
+    "clean-css-cli": "^5.6.2",
+    "terser": "^5.20.0",
+    "stylelint": "^15.10.3",
+    "stylelint-config-standard": "^34.0.0",
+    "eslint": "^8.50.0",
+    "eslint-config-standard": "^17.1.0",
+    "prettier": "^3.0.3",
+    "html-validate": "^8.4.0",
+    "http-server": "^14.1.1",
+    "concurrently": "^8.2.1",
+    "chokidar-cli": "^3.0.0"
+  },
+  "optionalDependencies": {
+    "sass": "^1.68.0",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.31",
+    "cssnano": "^6.0.1"
+  },
+  "browserslist": [
+    "defaults",
+    "not ie 11",
+    "not op_mini all"
+  ],
+  "stylelint": {
+    "extends": "stylelint-config-standard",
+    "rules": {
+      "color-function-notation": "legacy",
+      "alpha-value-notation": "number",
+      "custom-property-pattern": null,
+      "selector-class-pattern": null
+    }
+  },
+  "eslintConfig": {
+    "extends": "standard",
+    "env": {
+      "browser": true,
+      "es2021": true
+    },
+    "rules": {
+      "semi": ["error", "always"],
+      "space-before-function-paren": ["error", "never"]
+    }
+  },
+  "prettier": {
+    "semi": true,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "es5"
+  },
+  "funding": {
+    "type": "individual",
+    "url": "https://github.com/sponsors/yourusername"
+  }
+}

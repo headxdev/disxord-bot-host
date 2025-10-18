@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#070b14">
+    <meta name="description" content="Professional Discord Bot Manager - Create and manage your Discord bots easily">
+    <title>Discord Bot Manager - by headx & the psychon</title>
+    <link rel="stylesheet" href="style.css" id="theme-style">
+    <noscript>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="theme-overrides.css">
+    </noscript>
+    <link rel="stylesheet" href="auth-styles.css">
+    <!-- Preload für wichtige Assets -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+</head>
+<body>
+    <!-- Animated Space Background -->
+    <div class="space-background">
+        <div class="stars"></div>
+        <div class="solar-system">
+            <div class="sun"></div>
+            
+            <div class="planet mercury">
+                <div class="planet-orbit"></div>
+            </div>
+            <div class="planet venus">
+                <div class="planet-orbit"></div>
+            </div>
+            <div class="planet earth">
+                <div class="planet-orbit"></div>
+                <div class="moon"></div>
+            </div>
+            <div class="planet mars">
+                <div class="planet-orbit"></div>
+            </div>
+            
+            <div class="planet jupiter">
+                <div class="planet-orbit"></div>
+            </div>
+            <div class="planet saturn">
+                <div class="planet-orbit"></div>
+                <div class="saturn-rings"></div>
+            </div>
+            <div class="planet uranus">
+                <div class="planet-orbit"></div>
+            </div>
+            <div class="planet neptune">
+                <div class="planet-orbit"></div>
+            </div>
+        </div>
+        <div class="nebula"></div>
+    </div>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="header-text">
+                    <h1 class="text-gradient">🤖 Discord Bot Manager</h1>
+                    <paragraph>Verwalten Sie Ihre Discord-Bots professionell und sicher</paragraph>
+                    <div class="credits">Entwickelt von headx & the psychon</div>
+                </div>
+                <div class="header-actions">
+                    <div id="user-info" class="user-info" style="display: none;">
+                        <img id="user-avatar" class="user-avatar" src="" alt="User">
+                        <div class="user-details">
+                            <span id="user-name" class="user-name"></span>
+                            <button class="button button-small button-secondary" onclick="logout()">Logout</button>
+                        </div>
+                    </div>
+                    <button id="login-btn" class="button button-primary discord-login-button" onclick="loginWithDiscord()" style="display: none;">
+                        <svg width="20" height="20" viewBox="0 0 71 55" fill="currentColor">
+                            <path d="M60.1045 4.8978C55.5792 2.8214 50.7265 1.2916 45.6527 0.41542C45.5603 0.39851 45.468 0.440769 45.4204 0.525289C44.7963 1.6353 44.105 3.0834 43.6209 4.2216C38.1637 3.4046 32.7345 3.4046 27.3892 4.2216C26.905 3.0581 26.1886 1.6353 25.5617 0.525289C25.5141 0.443589 25.4218 0.40133 25.3294 0.41542C20.2584 1.2888 15.4057 2.8186 10.8776 4.8978C10.8384 4.9147 10.8048 4.9429 10.7825 4.9795C1.57795 18.7309 -0.943561 32.1443 0.293408 45.3914C0.299005 45.4562 0.335386 45.5182 0.385761 45.5576C6.45866 50.0174 12.3413 52.7249 18.1147 54.5195C18.2071 54.5477 18.305 54.5139 18.3638 54.4378C19.7295 52.5728 20.9469 50.6063 21.9907 48.5383C22.0523 48.4172 21.9935 48.2735 21.8676 48.2256C19.9366 47.4931 18.0979 46.6 16.3292 45.5858C16.1893 45.5041 16.1781 45.304 16.3068 45.2082C16.679 44.9293 17.0513 44.6391 17.4067 44.3461C17.471 44.2926 17.5606 44.2813 17.6362 44.3151C29.2558 49.6202 41.8354 49.6202 53.3179 44.3151C53.3935 44.2785 53.4831 44.2898 53.5502 44.3433C53.9057 44.6363 54.2779 44.9293 54.6529 45.2082C54.7816 45.304 54.7732 45.5041 54.6333 45.5858C52.8646 46.6197 51.0259 47.4931 49.0921 48.2228C48.9662 48.2707 48.9102 48.4172 48.9718 48.5383C50.038 50.6034 51.2554 52.5699 52.5959 54.435C52.6519 54.5139 52.7526 54.5477 52.845 54.5195C58.6464 52.7249 64.529 50.0174 70.6019 45.5576C70.6551 45.5182 70.6887 45.459 70.6943 45.3942C72.1747 30.0791 68.2147 16.7757 60.1968 4.9823C60.1772 4.9429 60.1437 4.9147 60.1045 4.8978ZM23.7259 37.3253C20.2276 37.3253 17.3451 34.1136 17.3451 30.1693C17.3451 26.225 20.1717 23.0133 23.7259 23.0133C27.308 23.0133 30.1626 26.2532 30.1066 30.1693C30.1066 34.1136 27.28 37.3253 23.7259 37.3253ZM47.3178 37.3253C43.8196 37.3253 40.9371 34.1136 40.9371 30.1693C40.9371 26.225 43.7636 23.0133 47.3178 23.0133C50.9 23.0133 53.7545 26.2532 53.6986 30.1693C53.6986 34.1136 50.9 37.3253 47.3178 37.3253Z"/>
+                        </svg>
+                        Mit Discord anmelden
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Navigation Tabs -->
+            <div class="navigation-tabs">
+                <button class="navigation-tab active" onclick="showTab('overview', this)" data-tab="overview">📊 Übersicht</button>
+                <button class="navigation-tab" onclick="showTab('add-bot', this)" data-tab="add-bot">➕ Bot hinzufügen</button>
+                <button class="navigation-tab" onclick="showTab('discord-apps', this)" data-tab="discord-apps">🎮 Discord Apps</button>
+                <button class="navigation-tab" onclick="showTab('templates', this)" data-tab="templates">⚡ Templates</button>
+            </div>
+
+            <!-- Overview Tab -->
+            <div id="overview" class="tab-content active">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <h2>Ihre Discord Bots</h2>
+                    <button class="button button-primary" onclick="openAddBot()">➕ Bot hinzufügen</button>
+                </div>
+            <div id="bot-list" class="draggable-container">
+                <!-- Bot cards will be rendered here -->
+            </div>
+        </div>
+
+        <!-- Discord Apps Tab -->
+        <div id="discord-apps" class="tab-content">
+            <h2>🎮 Meine Discord Applications</h2>
+            <paragraph class="tab-description">Importieren Sie Ihre bestehenden Discord Bots automatisch</paragraph>                <div id="discord-apps-content">
+                    <div class="authentication-required" id="auth-required-message">
+                        <div class="authentication-card">
+                            <svg width="80" height="80" viewBox="0 0 71 55" fill="currentColor" style="opacity: 0.3;">
+                                <path d="M60.1045 4.8978C55.5792 2.8214 50.7265 1.2916 45.6527 0.41542C45.5603 0.39851 45.468 0.440769 45.4204 0.525289C44.7963 1.6353 44.105 3.0834 43.6209 4.2216C38.1637 3.4046 32.7345 3.4046 27.3892 4.2216C26.905 3.0581 26.1886 1.6353 25.5617 0.525289C25.5141 0.443589 25.4218 0.40133 25.3294 0.41542C20.2584 1.2888 15.4057 2.8186 10.8776 4.8978C10.8384 4.9147 10.8048 4.9429 10.7825 4.9795C1.57795 18.7309 -0.943561 32.1443 0.293408 45.3914C0.299005 45.4562 0.335386 45.5182 0.385761 45.5576C6.45866 50.0174 12.3413 52.7249 18.1147 54.5195C18.2071 54.5477 18.305 54.5139 18.3638 54.4378C19.7295 52.5728 20.9469 50.6063 21.9907 48.5383C22.0523 48.4172 21.9935 48.2735 21.8676 48.2256C19.9366 47.4931 18.0979 46.6 16.3292 45.5858C16.1893 45.5041 16.1781 45.304 16.3068 45.2082C16.679 44.9293 17.0513 44.6391 17.4067 44.3461C17.471 44.2926 17.5606 44.2813 17.6362 44.3151C29.2558 49.6202 41.8354 49.6202 53.3179 44.3151C53.3935 44.2785 53.4831 44.2898 53.5502 44.3433C53.9057 44.6363 54.2779 44.9293 54.6529 45.2082C54.7816 45.304 54.7732 45.5041 54.6333 45.5858C52.8646 46.6197 51.0259 47.4931 49.0921 48.2228C48.9662 48.2707 48.9102 48.4172 48.9718 48.5383C50.038 50.6034 51.2554 52.5699 52.5959 54.435C52.6519 54.5139 52.7526 54.5477 52.845 54.5195C58.6464 52.7249 64.529 50.0174 70.6019 45.5576C70.6551 45.5182 70.6887 45.459 70.6943 45.3942C72.1747 30.0791 68.2147 16.7757 60.1968 4.9823C60.1772 4.9429 60.1437 4.9147 60.1045 4.8978ZM23.7259 37.3253C20.2276 37.3253 17.3451 34.1136 17.3451 30.1693C17.3451 26.225 20.1717 23.0133 23.7259 23.0133C27.308 23.0133 30.1626 26.2532 30.1066 30.1693C30.1066 34.1136 27.28 37.3253 23.7259 37.3253ZM47.3178 37.3253C43.8196 37.3253 40.9371 34.1136 40.9371 30.1693C40.9371 26.225 43.7636 23.0133 47.3178 23.0133C50.9 23.0133 53.7545 26.2532 53.6986 30.1693C53.6986 34.1136 50.9 37.3253 47.3178 37.3253Z"/>
+                            </svg>
+                            <h3>Discord Account verbinden</h3>
+                            <paragraph>Verbinden Sie Ihren Discord Account, um Ihre bestehenden Bots automatisch zu importieren und zu verwalten.</paragraph>
+                            <button class="button button-primary discord-login-button" onclick="loginWithDiscord()">
+                                <svg width="20" height="20" viewBox="0 0 71 55" fill="currentColor">
+                                    <path d="M60.1045 4.8978C55.5792 2.8214 50.7265 1.2916 45.6527 0.41542C45.5603 0.39851 45.468 0.440769 45.4204 0.525289C44.7963 1.6353 44.105 3.0834 43.6209 4.2216C38.1637 3.4046 32.7345 3.4046 27.3892 4.2216C26.905 3.0581 26.1886 1.6353 25.5617 0.525289C25.5141 0.443589 25.4218 0.40133 25.3294 0.41542C20.2584 1.2888 15.4057 2.8186 10.8776 4.8978C10.8384 4.9147 10.8048 4.9429 10.7825 4.9795C1.57795 18.7309 -0.943561 32.1443 0.293408 45.3914C0.299005 45.4562 0.335386 45.5182 0.385761 45.5576C6.45866 50.0174 12.3413 52.7249 18.1147 54.5195C18.2071 54.5477 18.305 54.5139 18.3638 54.4378C19.7295 52.5728 20.9469 50.6063 21.9907 48.5383C22.0523 48.4172 21.9935 48.2735 21.8676 48.2256C19.9366 47.4931 18.0979 46.6 16.3292 45.5858C16.1893 45.5041 16.1781 45.304 16.3068 45.2082C16.679 44.9293 17.0513 44.6391 17.4067 44.3461C17.471 44.2926 17.5606 44.2813 17.6362 44.3151C29.2558 49.6202 41.8354 49.6202 53.3179 44.3151C53.3935 44.2785 53.4831 44.2898 53.5502 44.3433C53.9057 44.6363 54.2779 44.9293 54.6529 45.2082C54.7816 45.304 54.7732 45.5041 54.6333 45.5858C52.8646 46.6197 51.0259 47.4931 49.0921 48.2228C48.9662 48.2707 48.9102 48.4172 48.9718 48.5383C50.038 50.6034 51.2554 52.5699 52.5959 54.435C52.6519 54.5139 52.7526 54.5477 52.845 54.5195C58.6464 52.7249 64.529 50.0174 70.6019 45.5576C70.6551 45.5182 70.6887 45.459 70.6943 45.3942C72.1747 30.0791 68.2147 16.7757 60.1968 4.9823C60.1772 4.9429 60.1437 4.9147 60.1045 4.8978ZM23.7259 37.3253C20.2276 37.3253 17.3451 34.1136 17.3451 30.1693C17.3451 26.225 20.1717 23.0133 23.7259 23.0133C27.308 23.0133 30.1626 26.2532 30.1066 30.1693C30.1066 34.1136 27.28 37.3253 23.7259 37.3253ZM47.3178 37.3253C43.8196 37.3253 40.9371 34.1136 40.9371 30.1693C40.9371 26.225 43.7636 23.0133 47.3178 23.0133C50.9 23.0133 53.7545 26.2532 53.6986 30.1693C53.6986 34.1136 50.9 37.3253 47.3178 37.3253Z"/>
+                            </svg>
+                            Mit Discord verbinden
+                        </button>
+                    </div>
+                </div>
+                
+                <div id="discord-apps-list" style="display: none;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <button class="button button-secondary" onclick="refreshDiscordApps()">
+                            🔄 Aktualisieren
+                        </button>
+                    </div>
+                    <div id="apps-grid" class="template-grid"></div>
+                </div>
+            </div>
+
+            <!-- Add Bot Tab -->
+            <div id="add-bot" class="tab-content">
+                <h2>🆕 Neuen Bot hinzufügen</h2>
+                
+                <form id="add-bot-form">
+                    <!-- Token & Basic Info Section -->
+                    <div class="token-section">
+                        <h3>🔐 Bot-Konfiguration</h3>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="bot_name">Bot Name *</label>
+                                <input type="text" name="bot_name" id="bot_name" class="form-control" placeholder="Mein Discord Bot" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="bot_folder">Bot Ordner</label>
+                                <input type="text" name="bot_folder" id="bot_folder" class="form-control" placeholder="bot_ordner">
+                                <small>Ordnername für Bot-Dateien (optional)</small>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="bot_token">Discord Bot Token *</label>
+                            <div class="input-group">
+                                <input type="password" name="bot_token" id="bot_token" class="form-control" placeholder="MTE5..." required>
+                                <button type="button" class="button button-secondary" onclick="toggleTokenVisibility()" id="token-toggle">👁️ Anzeigen</button>
+                            </div>
+                            <small>Token aus dem Discord Developer Portal</small>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="client_id">Client ID *</label>
+                                <input type="text" name="client_id" id="client_id" class="form-control" placeholder="123456789012345678" required>
+                                <small>Für Bot-Einladungslink</small>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="command_prefix">Command Prefix</label>
+                                <input type="text" name="command_prefix" id="command_prefix" class="form-control" placeholder="!" value="!" maxlength="3">
+                                <small>Zeichen vor Commands (!help, ?ping)</small>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="bot_start">Start-Datei</label>
+                                <input type="text" name="bot_start" id="bot_start" class="form-control" placeholder="main.py" value="main.py">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="bot_invite">Einladungslink (wird automatisch generiert)</label>
+                                <input type="url" name="bot_invite" id="bot_invite" class="form-control" readonly>
+                                <small id="invite-status">Client ID eingeben für automatische URL-Generierung</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Command Management Section -->
+                    <div class="command-section">
+                        <h3>⚡ Command-Verwaltung</h3>
+                        
+                        <div class="tabs-container">
+                            <button type="button" class="tab-button active" onclick="switchCommandMode('single')">Einzelne Datei</button>
+                            <button type="button" class="tab-button" onclick="switchCommandMode('multiple')">Mehrere Dateien (Cogs)</button>
+                        </div>
+                        
+                        <div id="single-mode" class="command-mode">
+                            <paragraph style="margin-bottom: 15px;">Alle Commands werden in der main.py gespeichert</paragraph>
+                            <button type="button" class="button button-primary" onclick="openCommandBuilder('single')">+ Command hinzufügen</button>
+                        </div>
+                        
+                        <div id="multiple-mode" class="command-mode" style="display: none;">
+                            <paragraph style="margin-bottom: 15px;">Commands werden als separate Cogs organisiert</paragraph>
+                            <button type="button" class="button button-primary" onclick="openCommandBuilder('multiple')">+ Cog hinzufügen</button>
+                        </div>
+                        
+                        <div class="command-list" id="preview-commands">
+                            <paragraph class="no-commands">Keine Commands hinzugefügt</paragraph>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 30px; text-align: center;">
+                        <button type="submit" class="button button-success" style="font-size: 16px; padding: 15px 30px;">
+                            🚀 Bot erstellen
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Templates Tab -->
+            <div id="templates" class="tab-content">
+                <h2>⚡ Command Templates</h2>
+                
+                <!-- Template Navigation -->
+                <div class="template-navigation">
+                    <button class="navigation-tab active" data-tab="moderation">🛡️ Moderation</button>
+                    <button class="navigation-tab" data-tab="fun">🎮 Fun</button>
+                    <button class="navigation-tab" data-tab="utility">⚙️ Utility</button>
+                    <button class="navigation-tab" data-tab="music">🎵 Music</button>
+                </div>
+
+                <!-- Moderation Templates -->
+                <div id="moderation-templates" class="template-section">
+                    <h3>🛡️ Moderation Commands</h3>
+                    <div class="template-grid draggable-container">
+                        <div class="template-card">
+                            <h4>Kick Command</h4>
+                            <paragraph>Kickt einen User vom Server</paragraph>
+                            <code class="template-preview">!kick @user [reason]</code>
+                            <button class="button button-primary" onclick="useTemplate('moderation', 'kick')">Template nutzen</button>
+                        </div>
+                        <div class="template-card">
+                            <h4>Ban Command</h4>
+                            <paragraph>Bannt einen User vom Server</paragraph>
+                            <code class="template-preview">!ban @user [reason]</code>
+                            <button class="button button-primary" onclick="useTemplate('moderation', 'ban')">Template nutzen</button>
+                        </div>
+                        <div class="template-card">
+                            <h4>Mute Command</h4>
+                            <paragraph>Mutet einen User im Server</paragraph>
+                            <code class="template-preview">!mute @user [duration]</code>
+                            <button class="button button-primary" onclick="useTemplate('moderation', 'mute')">Template nutzen</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fun Templates -->
+                <div id="fun-templates" class="template-section">
+                    <h3>🎮 Fun Commands</h3>
+                    <div class="template-grid">
+                        <div class="template-card">
+                            <h4>Dice Roll</h4>
+                            <paragraph>Würfelt eine zufällige Zahl</paragraph>
+                            <code class="template-preview">!roll [sides]</code>
+                            <button class="button button-primary" onclick="useTemplate('fun', 'dice')">Template nutzen</button>
+                        </div>
+                        <div class="template-card">
+                            <h4>8Ball</h4>
+                            <paragraph>Magische Antworten auf Fragen</paragraph>
+                            <code class="template-preview">!8ball [question]</code>
+                            <button class="button button-primary" onclick="useTemplate('fun', '8ball')">Template nutzen</button>
+                        </div>
+                        <div class="template-card">
+                            <h4>Random Meme</h4>
+                            <paragraph>Zeigt ein zufälliges Meme</paragraph>
+                            <code class="template-preview">!meme</code>
+                            <button class="button button-primary" onclick="useTemplate('fun', 'meme')">Template nutzen</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Utility Templates -->
+                <div id="utility-templates" class="template-section">
+                    <h3>⚙️ Utility Commands</h3>
+                    <div class="template-grid">
+                        <div class="template-card">
+                            <h4>User Info</h4>
+                            <paragraph>Zeigt Informationen über einen User</paragraph>
+                            <code class="template-preview">!userinfo [@user]</code>
+                            <button class="button button-primary" onclick="useTemplate('utility', 'userinfo')">Template nutzen</button>
+                        </div>
+                        <div class="template-card">
+                            <h4>Server Info</h4>
+                            <paragraph>Zeigt Informationen über den Server</paragraph>
+                            <code class="template-preview">!serverinfo</code>
+                            <button class="button button-primary" onclick="useTemplate('utility', 'serverinfo')">Template nutzen</button>
+                        </div>
+                        <div class="template-card">
+                            <h4>Weather Info</h4>
+                            <paragraph>Zeigt das Wetter für einen Ort</paragraph>
+                            <code class="template-preview">!weather [location]</code>
+                            <button class="button button-primary" onclick="useTemplate('utility', 'weather')">Template nutzen</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Music Templates -->
+                <div id="music-templates" class="template-section">
+                    <h3>🎵 Music Commands</h3>
+                    <div class="template-grid">
+                        <div class="template-card">
+                            <h4>Play Music</h4>
+                            <paragraph>Spielt Musik von YouTube/URL</paragraph>
+                            <code class="template-preview">!play [url/search]</code>
+                            <button class="button button-primary" onclick="useTemplate('music', 'play')">Template nutzen</button>
+                        </div>
+                        <div class="template-card">
+                            <h4>Queue System</h4>
+                            <paragraph>Verwaltet die Musik-Warteschlange</paragraph>
+                            <code class="template-preview">!queue</code>
+                            <button class="button button-primary" onclick="useTemplate('music', 'queue')">Template nutzen</button>
+                        </div>
+                        <div class="template-card">
+                            <h4>Skip Track</h4>
+                            <paragraph>Überspringt den aktuellen Song</paragraph>
+                            <code class="template-preview">!skip</code>
+                            <button class="button button-primary" onclick="useTemplate('music', 'skip')">Template nutzen</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Music Templates -->
+                <div id="music-templates" class="template-section">
+                    <h3>🎵 Music Commands</h3>
+                    <div class="template-grid">
+                        <div class="template-card">
+                            <h4>Play Music</h4>
+                            <paragraph>Spielt Musik von YouTube/URL</paragraph>
+                            <code class="template-preview">!play [url/search]</code>
+                            <button class="button button-primary" onclick="useTemplate('music', 'play')">Template nutzen</button>
+                        </div>
+                        <div class="template-card">
+                            <h4>Queue System</h4>
+                            <paragraph>Verwaltet die Musik-Warteschlange</paragraph>
+                            <code class="template-preview">!queue</code>
+                            <button class="button button-primary" onclick="useTemplate('music', 'queue')">Template nutzen</button>
+                        </div>
+                        <div class="template-card">
+                            <h4>Skip Track</h4>
+                            <paragraph>Überspringt den aktuellen Song</paragraph>
+                            <code class="template-preview">!skip</code>
+                            <button class="button button-primary" onclick="useTemplate('music', 'skip')">Template nutzen</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add Bot Modal -->
+        <div id="add-bot-modal" class="modal">
+            <div class="modal-content">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <h2>🆕 Bot hinzufügen</h2>
+                    <button onclick="closeAddBot()" class="button button-danger">❌ Schließen</button>
+                </div>
+                <!-- Form content would go here if needed -->
+            </div>
+        </div>
+
+        <!-- Bot Details Modal -->
+        <div id="bot-details-modal" class="modal">
+            <div class="modal-content" style="max-width: 1200px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <h2 id="modal-bot-name">Bot Details</h2>
+                    <button onclick="closeBotDetails()" class="button button-danger">❌ Schließen</button>
+                </div>
+
+                <!-- Bot Info Section -->
+                <div class="bot-information-section">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="edit-bot-name">Bot Name</label>
+                            <input type="text" id="edit-bot-name" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-bot-folder">Bot Ordner</label>
+                            <input type="text" id="edit-bot-folder" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="edit-bot-token">Bot Token</label>
+                        <div class="input-group">
+                            <input type="password" id="edit-bot-token" class="form-control">
+                            <button type="button" class="button button-secondary" onclick="toggleEditTokenVisibility()">👁️</button>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="edit-client-id">Client ID</label>
+                            <input type="text" id="edit-client-id" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-start-file">Start-Datei</label>
+                            <input type="text" id="edit-start-file" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="edit-invite-url">Einladungslink</label>
+                        <input type="text" id="edit-invite-url" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label>OAuth2 Discord Invite URL</label>
+                        <div id="oauth-uniform-resource-locator" class="oauth-uniform-resource-locator">
+                            Client ID erforderlich für URL-Generierung
+                            <button class="copy-button" onclick="copyOAuthUrl()">📋 Kopieren</button>
+                        </div>
+                    </div>
+
+                    <div style="margin: 20px 0; display: flex; gap: 10px; flex-wrap: wrap;">
+                        <button onclick="saveBotInfo()" class="button button-success">💾 Speichern</button>
+                        <button onclick="downloadScript(currentBotId, 'python')" class="button button-warning">🐍 Python Script</button>
+                        <button onclick="downloadScript(currentBotId, 'batch')" class="button button-warning">📝 Batch Script</button>
+                        <button onclick="exportBot(currentBotId)" class="button button-info">📦 Export</button>
+                        <button onclick="deleteBot(currentBotId)" class="button button-danger">🗑️ Bot löschen</button>
+                    </div>
+                </div>
+
+                <!-- File Management Section -->
+                <div class="editor-area">
+                    <div class="file-panel">
+                        <h3>📁 Dateien</h3>
+                        <div id="file-tree" class="file-tree"></div>
+                        
+                        <div style="margin-top: 10px;">
+                            <input type="text" id="new-file-name" class="form-control" placeholder="neue-datei.py" style="margin-bottom: 10px;">
+                            <button onclick="createNewFile()" class="button button-success">📄 Neue Datei</button>
+                        </div>
+                    </div>
+
+                    <div class="editor-panel">
+                        <h3>✏️ Editor</h3>
+                        <div style="margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center;">
+                            <span id="current-file-name">Keine Datei ausgewählt</span>
+                            <button onclick="saveFile()" class="button button-success">💾 Speichern</button>
+                        </div>
+                        <textarea id="file-editor" class="code-editor" placeholder="Wählen Sie eine Datei aus oder erstellen Sie eine neue..."></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Command Builder Modal -->
+        <div id="command-builder-modal" class="modal">
+            <div class="modal-content">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <h2>Command hinzufügen</h2>
+                    <button onclick="closeCommandBuilder()" class="button button-danger">❌ Schließen</button>
+                </div>
+                
+                <form id="command-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="cmd-name">Command Name *</label>
+                            <input type="text" id="cmd-name" class="form-control" placeholder="ping" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cmd-category">Kategorie</label>
+                            <select id="cmd-category" class="form-control">
+                                <option value="Basic">Basic</option>
+                                <option value="Moderation">Moderation</option>
+                                <option value="Fun">Fun</option>
+                                <option value="Music">Music</option>
+                                <option value="Utility">Utility</option>
+                                <option value="Custom">Custom</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cmd-description">Beschreibung</label>
+                        <input type="text" id="cmd-description" class="form-control" placeholder="Zeigt die Latenz des Bots an">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cmd-code">Command Code *</label>
+                        <textarea id="cmd-code" class="code-editor" style="height: 200px;" placeholder="@bot.command(name='ping')\nasync def ping(ctx):\n    await ctx.send('Pong!')" required></textarea>
+                        <small>Python Code für den Command</small>
+                    </div>
+                    
+                    <div style="display: flex; gap: 10px; justify-content: flex-end;">
+                        <button type="button" onclick="closeCommandBuilder()" class="button button-secondary">❌ Abbrechen</button>
+                        <button type="button" onclick="addCustomCommand()" class="button button-success">✅ Hinzufügen</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Import Modal -->
+        <div id="import-modal" class="modal">
+            <div class="modal-content">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <h2>Bot importieren</h2>
+                    <button onclick="closeImport()" class="button button-danger">❌ Schließen</button>
+                </div>
+                
+                <div class="form-group">
+                    <label for="import-file">Bot-Datei auswählen</label>
+                    <input type="file" id="import-file" class="form-control" accept=".json" onchange="handleImportFile(event)">
+                    <small>JSON-Datei eines exportierten Bots</small>
+                </div>
+                
+                <div style="display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px;">
+                    <button onclick="closeImport()" class="btn btn-secondary">Abbrechen</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Notifications Container -->
+        <div id="notification" class="notification"></div>
+
+        <!-- Loading Overlay -->
+        <div id="loading-overlay" class="loading-overlay" style="display: none;">
+            <div class="loading-spinner">
+                <div class="spinner"></div>
+                <p>Bot wird erstellt...</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <paragraph>&copy; 2024 Discord Bot Manager - Created by headx & the psychon</paragraph>
+            <div class="footer-actions">
+                <button class="button button-info" onclick="openImport()">📥 Bot importieren</button>
+                <button class="button button-secondary" onclick="clearAllData()">🗑️ Alle Daten löschen</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include JavaScript -->
+    <script src="script.js"></script>
+    <script src="auth-handler.js"></script>
+    <script src="draggable.js"></script>
+    <script src="templates.js"></script>
+    <script>
+        // Initialize authentication on page load
+        document.addEventListener('DOMContentLoaded', async function() {
+            await checkAuthStatus();
+            
+            // Check for login success
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('login') === 'success') {
+                showNotification('Erfolgreich mit Discord angemeldet!', 'success');
+                // Clean URL
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
+        });
+    </script>
+</body>
+</html>
